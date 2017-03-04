@@ -53,7 +53,7 @@ public class LoginController {
 			if(designation==5){
 				List<User> userList=userDAO.findAll();
 				modelMap.addAttribute("USER_LIST",userList);
-				List<Complaint> complaintList=complaintDAO.findAll();
+				List<Complaint> complaintList=complaintDAO.findassigned();
 				modelMap.addAttribute("COMPLAINT_LIST",complaintList);
 				returnStatement= "/admin.jsp";
 			}

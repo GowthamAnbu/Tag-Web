@@ -1,5 +1,7 @@
 package com.tag.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.mail.EmailException;
@@ -91,5 +93,12 @@ public class ComplaintController {
 		String emailId = admin.getEmailId();
 		String password = admin.getPassword();
 		return "redirect:../login?emailId="+emailId+"&password="+password;
+	}
+	
+	@GetMapping("/viewComplaints")
+	public String findall(ModelMap modelMap) {
+		List<Complaint> complaintList=complaintDAO.findAll();
+		modelMap.addAttribute("COMPLAINT_LIST",complaintList);
+		return "/viewComplaints.jsp";
 	}
 }
