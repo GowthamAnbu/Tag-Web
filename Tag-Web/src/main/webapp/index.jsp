@@ -14,9 +14,9 @@ pageEncoding="ISO-8859-1"%>
                <input type="text" id="EMIAL_ID" name="emailId" class="form-control" required="" autofocus="" placeholder="abc@gamil.com">
                <label for="pwd">PASSWORD:</label>
                <input type="password" id="pwd" name="password" style="margin-bottom: 10px" class="form-control" required="">
-            <input type="submit" value="Login" class="btn btn-primary btn-md btn-block"><!-- 
-            <small id="registerHelp" class="form-text text-muted btn">not registered?</small> -->
+            <input type="submit" value="Login" class="btn btn-primary btn-md btn-block">
             <a class="btn btn-block btn-sm" href="register.jsp">not Registered ?</a>
+            <a class="btn btn-block btn-sm" href="complaintRegister.jsp">just Register complaint?</a>
     </form>
     ${LOGIN_ERROR}
 </div> 

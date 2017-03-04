@@ -9,52 +9,25 @@
 <%@ taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>EMPLOYEE REGISTRATION PAGE</title>
+<title>RATING PAGE</title>
 </head>
 <body>
-<a href="registerEmployee.jsp">REGISTER EMPLOYEE</a>
 <table>
 	<thead>
 		<td>ID</td>
 		<td>NAME</td>
-		<td>GENDER</td>
-		<td>EMAIL_ID</td>
-		<td>PHONE_NUMBER</td>
-		<td>ROLE_ID</td>
 	</thead>
-	<jstl:forEach var="i" items="${USER_LIST}" varStatus="invalid">
+	<jstl:forEach var="i" items="${EMPLOYEE_LIST}" varStatus="invalid">
 	<tr>
-				<td>${i.id}</td>
-				<td>${i.name}</td>
-				<td>${i.gender}</td>
-				<td>${i.emailId}</td>
-				<td>${i.phoneNumber}</td>
-				<td>${i.role.id}</td>
-	</tr>
-	</jstl:forEach>
-</table>
-<table>
-	<thead>
-		<td>ID</td>
-		<td>NAME</td>
-		<td>USER_ID</td>
-		<td>DEPARTMENT_ID</td>
-		<td>DOOR_NUMBER</td>
-		<td>STREET_NAME</td>
-		<td>PINCODE</td>
-		<td>DETAILS</td>
-	</thead>
-	<jstl:forEach var="i" items="${COMPLAINT_LIST}" varStatus="invalid">
-	<tr>
-				<td>${i.id}</td>
-				<td>${i.name}</td>
-				<td>${i.user.id}</td>
-				<td>${i.department.id}</td>
-				<td>${i.doorNo}</td>
-				<td>${i.streetName}</td>
-				<td>${i.pincode}</td>
-				<td>${i.details}</td>
-				<td><a href="assign.jsp?id=${i.id}">Assign Employee</a></td>
+				<td>${i}</td>
+				<td>
+					<select>
+					<option value="" disabled selected>Choose your Rating</option>
+					<option value="1">good</option>
+					<option value="2">average</option>
+					<option value="3">poor</option>
+					</select>
+				</td>
 	</tr>
 	</jstl:forEach>
 </table>
