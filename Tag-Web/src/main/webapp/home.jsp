@@ -24,7 +24,7 @@
       <li><a href="../logout"> Logout</a></li>
     </ul>
 </nav>
-<table>
+<table class="table table-hover">
 	<thead>
 		<td>ID</td>
 		<td>NAME</td>
