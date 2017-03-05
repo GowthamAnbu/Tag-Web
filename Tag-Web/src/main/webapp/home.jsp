@@ -39,7 +39,17 @@
 	<tr>
 				<td>${i.id}</td>
 				<td>${i.name}</td>
-				<td>${i.user.id}</td>
+				<td><jstl:set var="userId" value="${i.user.id}" />
+					<jstl:set var="noUser" value="${0}" />
+					<jstl:choose>
+						<jstl:when test="${userId==noUser}">
+							<p class="text-danger">not a registered user</p>
+						</jstl:when>
+						<jstl:otherwise>
+							${i.user.id}
+						</jstl:otherwise>
+					</jstl:choose></td>
+				<%-- <td>${i.user.id}</td> --%>
 				<td>${i.department.id}</td>
 				<td>${i.doorNo}</td>
 				<td>${i.streetName}</td>
