@@ -78,7 +78,7 @@
 				     <p class="text-danger bg-danger">COMPLAINT HAS BEEN DECLINED DUE TO WRONG INFORMATION</p>
 				 	</jstl:when>
 					<jstl:otherwise>
-				     three
+				     <p class="text-danger">ERROR</p>
 				 	</jstl:otherwise>
 				</jstl:choose><td>
 				<%-- <td>${i.status.id}</td> --%>

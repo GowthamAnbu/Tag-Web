@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>EMPLOYEE PAGE</title>
+<title>EMPLOYEE COMPLAINTS</title>
 </head>
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
 <nav class="navbar navbar-default">
   <ul class="nav navbar-nav">
     <li  class="nav-item"><a class="nav-link" href="../employee">HOME</a></li>
-    <li  class="nav-item"><a class="nav-link" href="../employee/findByEmployeeId">VIEW COMPLAINTS</a></li>
+   <li  class="nav-item"><a class="nav-link" href="../employee/findByEmployeeId">VIEW COMPLAINTS</a></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
       <li><a href="../logout"> Logout</a></li>
@@ -28,30 +28,48 @@
 </nav>
 <table class="table table-hover">
 	<thead>
-		<td>USER_ID</td>
-		<td>USER_NAME</td>
-		<td>EMAIL_ID</td>
-		<td>PHONE_NUMBER</td>
-		<td>DESIGNATION</td>
-		<td>RATING</td>
+		<td>ID</td>
+		<td>NAME</td>
+		<td>DOOR_NUMBER</td>
+		<td>STREET_NAME</td>
+		<td>PINCODE</td>
+		<td>DETAILS</td>
+		<td>STATUS_ID</td>
 	</thead>
-	<jstl:forEach var="i" items="${EMPLOYEE_LIST}" varStatus="invalid">
+	<jstl:forEach var="i" items="${COMPLAINT_LIST}" varStatus="invalid">
 	<tr>
-				<td>${i.user.id}</td>
-				<td>${i.user.name}</td>
-				<td>${i.user.emailId}</td>
-				<td>${i.user.phoneNumber}</td>
-				<td>${i.user.role.name}</td>
-				<jstl:set var="role" value="${i.rating}" />
+				<td>${i.id}</td>
+				<td>${i.name}</td>
+				<td>${i.doorNo}</td>
+				<td>${i.streetName}</td>
+				<td>${i.pincode}</td>
+				<td>${i.details}</td>
+				<jstl:set var="status" value="${i.status.id}" />
+				<jstl:set var="applied" value="${1}" />
+				<jstl:set var="cancelled" value="${2}" />
+				<jstl:set var="assigned" value="${3}" />
+				<jstl:set var="finished" value="${4}" />
+				<jstl:set var="declined" value="${5}" />
 				<td><jstl:choose>
-					<jstl:when test="${role==0}">
-				     <p class="text-primary">no ratings yet</p>
+					<jstl:when test="${status==applied}">
+				     <p class="text-primary bg-primary">COMPLAINT HAS BEEN REGISTERED</p>
 					</jstl:when>
+					<jstl:when test="${status==cancelled}">
+				     <p class="text-warning bg-warning">COMPLAINT HAS BEEN CANCELLED</p>
+				 	</jstl:when>
+					<jstl:when test="${status==assigned}">
+				     <p class="text-info bg-info">COMPLAINT HAS BEEN ASSIGNED</p>
+				 	</jstl:when>
+					<jstl:when test="${status==finished}">
+				     <p class="text-success bg-success">WORK IS FINISHED</p>
+				 	</jstl:when>
+					<jstl:when test="${status==declined}">
+				     <p class="text-danger bg-danger">COMPLAINT HAS BEEN DECLINED DUE TO WRONG INFORMATION</p>
+				 	</jstl:when>
 					<jstl:otherwise>
-					<td>${i.rating}</td>
+				     <p class="text-danger">ERROR</p>
 				 	</jstl:otherwise>
-					</jstl:choose>
-				</td>
+				</jstl:choose><td>
 	</tr>
 	</jstl:forEach>
 </table>

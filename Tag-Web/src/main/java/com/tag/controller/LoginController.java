@@ -60,6 +60,8 @@ public class LoginController {
 				returnStatement= "/admin.jsp";
 			}
 			else{
+				List<Employee> employeeList=employeeDetailDAO.findAll(user.getId());
+				modelMap.addAttribute("EMPLOYEE_LIST",employeeList);
 				returnStatement="/employee.jsp";
 			}
 		}
