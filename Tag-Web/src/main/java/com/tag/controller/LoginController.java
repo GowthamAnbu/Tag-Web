@@ -46,6 +46,8 @@ public class LoginController {
 		employee.setUser(user);
 		int role = userDAO.getRole(emailId);
 		if(role==2){
+			List<Complaint> complaintList=complaintDAO.findbyUserId(user.getId());
+			modelMap.addAttribute("COMPLAINT_LIST",complaintList);
 			returnStatement="/user.jsp";	
 		}
 		else if(role==1){

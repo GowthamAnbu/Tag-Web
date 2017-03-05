@@ -101,4 +101,29 @@ public class ComplaintController {
 		modelMap.addAttribute("COMPLAINT_LIST",complaintList);
 		return "/viewComplaints.jsp";
 	}
+	
+	@GetMapping("/findbyUserId")
+	public String findbyUserId(ModelMap modelMap,HttpSession session) {
+		User user = (User)session.getAttribute("USER");
+		List<Complaint> complaintList=complaintDAO.findbyUserId(user.getId());
+		modelMap.addAttribute("COMPLAINT_LIST",complaintList);
+		return "/userHome.jsp";
+	}
+	
+	@GetMapping("/getEmployee")
+	public String getEmployee(ModelMap modelMap,HttpSession session){
+		User user = (User)session.getAttribute("USER");
+		List<Complaint> complaintList=complaintDAO.getEmployee(user.getId());
+		modelMap.addAttribute("EMPLOYEE_LIST",complaintList);
+		return "/employeeList.jsp";
+	}
+	
+	@GetMapping("/viewComplaintStatus")
+	public String viewComplaintStatus(ModelMap modelMap,HttpSession session){
+		User user = (User)session.getAttribute("USER");
+		List<Complaint> complaintList=complaintDAO.viewComplaintStatus(user.getId());
+		modelMap.addAttribute("COMPLAINT_LIST",complaintList);
+		return "/viewComplaintStatus.jsp";
+	}
+	
 }
