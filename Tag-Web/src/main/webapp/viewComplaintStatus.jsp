@@ -23,7 +23,7 @@
 	<nav class="navbar navbar-default">
 	<ul class="nav navbar-nav">
 		<li class="nav-item"><a class="nav-link"
-			href="../complaint/findbyUserId">HOME</a></li>
+			href="../RegisteredUser">HOME</a></li>
 		<li><a class="nav-link" href="../complaint/getEmployee">VIEW
 				EMPLOYEE</a></li>
 		<li><a class="nav-link" href="../complaint/viewComplaintStatus">VIEW

@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.mail.EmailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,6 @@ import com.tag.model.ComplaintEmployee;
 import com.tag.model.Department;
 import com.tag.model.Employee;
 import com.tag.model.User;
-import com.tag.util.MailUtil;
 
 @Controller
 @RequestMapping("/complaint")
@@ -47,11 +45,7 @@ public class ComplaintController {
 		complaint.setPincode(pincode);
 		complaint.setDetails(details);
 		complaintDAO.save(complaint);
-		try {
-			MailUtil.sendSimpleMail(user);
-		} catch (EmailException e) {
-			e.printStackTrace();
-		}
+		complaintDAO.sendSimpleMail(user);
 		return "/user.jsp";
 	}
 
@@ -83,12 +77,9 @@ public class ComplaintController {
 		ComplaintEmployee complaintEmployee = new ComplaintEmployee();
 		complaintEmployee.setComplaint(complaint);
 		complaintEmployee.setEmployee(employee);
+		complaintDAO.update(complaintId);
 		complaintEmployeeDAO.save(complaintEmployee);
-		try {
-			MailUtil.sendSimpleMail(complaintee,user);
-		} catch (EmailException e) {
-			e.printStackTrace();
-		}
+		complaintEmployeeDAO.sendSimpleMail(complaintee, user);
 		User admin = (User)session.getAttribute("USER");
 		String emailId = admin.getEmailId();
 		String password = admin.getPassword();

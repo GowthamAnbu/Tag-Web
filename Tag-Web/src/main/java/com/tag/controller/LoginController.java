@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tag.dao.ComplaintDAO;
 import com.tag.dao.EmployeeDetailDAO;
+import com.tag.dao.RegisteredUserDAO;
 import com.tag.dao.UserDAO;
 import com.tag.model.Complaint;
 import com.tag.model.Employee;
+import com.tag.model.RegisteredUser;
 import com.tag.model.User;
 
 @Controller
@@ -23,6 +25,7 @@ public class LoginController {
 	UserDAO userDAO = new UserDAO();
 	EmployeeDetailDAO employeeDetailDAO = new EmployeeDetailDAO();
 	ComplaintDAO complaintDAO = new ComplaintDAO();
+	RegisteredUserDAO registeredUserDAO = new RegisteredUserDAO();
 	@GetMapping
 	public String login(@RequestParam("emailId")String emailId,@RequestParam("password")String password,ModelMap modelMap,HttpSession session){
 		String returnStatement=null;
@@ -46,8 +49,8 @@ public class LoginController {
 		employee.setUser(user);
 		int role = userDAO.getRole(emailId);
 		if(role==2){
-			List<Complaint> complaintList=complaintDAO.findbyUserId(user.getId());
-			modelMap.addAttribute("COMPLAINT_LIST",complaintList);
+			List<RegisteredUser> userList=registeredUserDAO.findOne(user.getId());
+			modelMap.addAttribute("USER_LIST",userList);
 			returnStatement="/user.jsp";	
 		}
 		else if(role==1){

@@ -19,7 +19,7 @@
 <body>
 <nav class="navbar navbar-default">
   <ul class="nav navbar-nav">
-    <li  class="nav-item"><a class="nav-link" href="../complaint/findbyUserId">HOME</a></li>
+    <li  class="nav-item"><a class="nav-link" href="../RegisteredUser">HOME</a></li>
     <li><a class="nav-link" href="../complaint/getEmployee">VIEW EMPLOYEE</a></li>
     <li><a class="nav-link" href="../complaint/viewComplaintStatus">VIEW COMPLAINTS</a></li>
   </ul>
@@ -31,21 +31,23 @@
 	<thead>
 		<td>ID</td>
 		<td>NAME</td>
-		<td>DEPARTMENT_ID</td>
+		<td>GENDER</td>
+		<td>EMAIL_ID</td>
+		<td>PHONE_NUMBER</td>
 		<td>DOOR_NUMBER</td>
 		<td>STREET_NAME</td>
 		<td>PINCODE</td>
-		<td>DETAILS</td>
 	</thead>
-	<jstl:forEach var="i" items="${COMPLAINT_LIST}" varStatus="invalid">
+	<jstl:forEach var="i" items="${USER_LIST}" varStatus="invalid">
 	<tr>
-				<td>${i.id}</td>
-				<td>${i.name}</td>
-				<td>${i.department.id}</td>
+				<td>${i.user.id}</td>
+				<td>${i.user.name}</td>
+				<td>${i.user.gender}</td>
+				<td>${i.user.emailId}</td>
+				<td>${i.user.phoneNumber}</td>
 				<td>${i.doorNo}</td>
 				<td>${i.streetName}</td>
 				<td>${i.pincode}</td>
-				<td>${i.details}</td>
 	</tr>
 	</jstl:forEach>
 </table>
