@@ -22,12 +22,13 @@
 <body>
 	<nav class="navbar navbar-default">
 	<ul class="nav navbar-nav">
-		<li class="nav-item"><a class="nav-link"
-			href="../RegisteredUser">HOME</a></li>
+		<li class="nav-item"><a class="nav-link" href="../RegisteredUser">HOME</a></li>
 		<li><a class="nav-link" href="../complaint/getEmployee">VIEW
 				EMPLOYEE</a></li>
 		<li><a class="nav-link" href="../complaint/viewComplaintStatus">VIEW
 				COMPLAINTS</a></li>
+		<li><a class="nav-link" href="../registeredUserComplaint.jsp">REGISTER
+				COMPLAINT</a></li>
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
 		<li><a href="../logout"> Logout</a></li>
@@ -43,7 +44,9 @@
 			<td>STREET_NAME</td>
 			<td>PINCODE</td>
 			<td>DETAILS</td>
+			<td>REGISTERED TIME</td>
 			<td>STATUS</td>
+			<td>STATUS TIME</td>
 		</thead>
 		<jstl:forEach var="i" items="${COMPLAINT_LIST}" varStatus="invalid">
 			<tr>
@@ -55,6 +58,7 @@
 				<td>${i.streetName}</td>
 				<td>${i.pincode}</td>
 				<td>${i.details}</td>
+				<td>${i.registeredTime}</td>
 				<jstl:set var="status" value="${i.status.id}" />
 				<jstl:set var="applied" value="${1}" />
 				<jstl:set var="cancelled" value="${2}" />
@@ -62,26 +66,32 @@
 				<jstl:set var="finished" value="${4}" />
 				<jstl:set var="declined" value="${5}" />
 				<td><jstl:choose>
-					<jstl:when test="${status==applied}">
-				     <p class="text-primary bg-primary">COMPLAINT HAS BEEN REGISTERED</p>
-					</jstl:when>
-					<jstl:when test="${status==cancelled}">
-				     <p class="text-warning bg-warning">COMPLAINT HAS BEEN CANCELLED</p>
-				 	</jstl:when>
-					<jstl:when test="${status==assigned}">
-				     <p class="text-info bg-info">COMPLAINT HAS BEEN ASSIGNED TO EMPLOYEE</p>
-				 	</jstl:when>
-					<jstl:when test="${status==finished}">
-				     <p class="text-success bg-success">WORK IS FINISHED</p>
-				 	</jstl:when>
-					<jstl:when test="${status==declined}">
-				     <p class="text-danger bg-danger">COMPLAINT HAS BEEN DECLINED DUE TO WRONG INFORMATION</p>
-				 	</jstl:when>
-					<jstl:otherwise>
-				     <p class="text-danger">ERROR</p>
-				 	</jstl:otherwise>
-				</jstl:choose><td>
-				<%-- <td>${i.status.id}</td> --%>
+						<jstl:when test="${status==applied}">
+							<p class="text-primary bg-primary">COMPLAINT HAS BEEN
+								REGISTERED</p>
+						</jstl:when>
+						<jstl:when test="${status==cancelled}">
+							<p class="text-warning bg-warning">COMPLAINT HAS BEEN
+								CANCELLED</p>
+						</jstl:when>
+						<jstl:when test="${status==assigned}">
+							<p class="text-info bg-info">COMPLAINT HAS BEEN ASSIGNED TO
+								EMPLOYEE</p>
+						</jstl:when>
+						<jstl:when test="${status==finished}">
+							<p class="text-success bg-success">WORK IS FINISHED</p>
+						</jstl:when>
+						<jstl:when test="${status==declined}">
+							<p class="text-danger bg-danger">COMPLAINT HAS BEEN DECLINED
+								DUE TO WRONG INFORMATION</p>
+						</jstl:when>
+						<jstl:otherwise>
+							<p class="text-danger">ERROR</p>
+						</jstl:otherwise>
+					</jstl:choose>
+					<td>${i.statusTime}</td>
+				<td><%-- <td>${i.status.id}</td> --%>
+				
 			</tr>
 		</jstl:forEach>
 	</table>

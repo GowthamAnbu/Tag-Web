@@ -13,12 +13,13 @@
 <body>
 <!-- <div style="width:300px; margin:0 auto;margin-top: 5%"> -->
 <div class="container col-sm-3">
-<form action="/complaint/ucomplaint">
+<form action="/complaint">
 	COMPLAINT NAME:<input type="text" name="name" class="form-control" required>
 	DEPARTMENT NAME:
 	<select class="form-control" name="departmentName" id="departmentName">
 		<option value="METRO">METRO</option>
 	</select>
+	DOOR NUMBER:<input type="text" name="doorNumber" class="form-control" required>
 	STREET NAME:<!-- <input type="text" name="streetName" class="form-control" required> -->
 	<select class="form-control" name="streetName">
 		<option value="street 1">street 1</option>

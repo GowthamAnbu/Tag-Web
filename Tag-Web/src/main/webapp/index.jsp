@@ -9,14 +9,14 @@ pageEncoding="ISO-8859-1"%>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <body class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
     <div style="width:300px; margin:0 auto;margin-top: 15%">
-        <form class="align-items-center" action="/login" method="GET">
+        <form class="align-items-center" action="/login" method="get">
                <label for="EMIAL_ID">EMAIL ID:</label>
-               <input type="text" id="EMIAL_ID" name="emailId" class="form-control" required="" autofocus="" placeholder="abc@gamil.com">
+               <input type="email" id="EMIAL_ID" name="emailId" class="form-control" required="" autofocus="" placeholder="abc@gamil.com">
                <label for="pwd">PASSWORD:</label>
                <input type="password" id="pwd" name="password" style="margin-bottom: 10px" class="form-control" required="">
             <input type="submit" value="Login" class="btn btn-primary btn-md btn-block">
-            <a class="btn btn-block btn-sm" href="register.jsp">not Registered ?</a>
-            <a class="btn btn-block btn-sm" href="complaintRegister.jsp">just Register complaint?</a>
+            <a class="btn btn-block btn-sm" href="../register.jsp">not Registered ?</a>
+            <a class="btn btn-block btn-sm" href="../complaintRegister.jsp">just Register complaint?</a>
     </form>
     ${LOGIN_ERROR}
 </div> 

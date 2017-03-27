@@ -14,14 +14,38 @@
 <div style="width:300px; margin:0 auto;margin-top: 5%">
 <form action="/register/adminRegister">
 	NAME:<input type="text" name="name" class="form-control" required>
-	GENDER:<input type="text" name="gender" class="form-control" required placeholder="M/F">
-	EMAIL ID:<input type="text" name="emailId" class="form-control" required>
+	GENDER:<!-- <input type="text" name="gender" class="form-control" required placeholder="M/F"> -->
+	<select class="form-control" name="gender">
+		<option value="M">MALE</option>
+		<option value="F">FEMALE</option>
+	</select>
+	EMAIL ID:<input type="email" name="emailId" class="form-control" required>
 	PASSWORD:<input type="password" name="password" class="form-control" required>
-	PHONE NUMBER:<input type="text" name="phoneNumber" class="form-control" required>
-	ROLE ID:<input type="number" name="roleId">
-	DEPARTMENT ID:<input type="number" name="departmentId">
-	DESIGNATION ID:<input type="number" name="designationId">
-	<input type="submit" value="Register" class="btn-primary form-control">
+	PHONE NUMBER:<!-- <input type="text" name="phoneNumber" class="form-control" required> -->
+	<input type="text" name="phoneNumber" class="form-control" pattern="^[789]\d{9}$"  required>
+	ROLE:<!-- <input type="number" name="roleId"> -->
+	<select class="form-control" name="roleId">
+		<option value="1">EMPLOYEE</option>
+		<option value="2">REGISTERED_USER</option>
+	</select>
+	DEPARTMENT:<!-- <input type="number" name="departmentId">
+ -->	<select class="form-control" name="departmentId">
+		<option value="1">METRO</option>
+	</select>
+	DESIGNATION:<!-- <input type="number" name="designationId"> -->
+	<select class="form-control" name="designationId">
+		<option value="1">FIELD WORKER</option>
+		<option value="2">SUPERWISER</option>
+		<option value="3">ASSISSTANT MANAGER</option>
+		<option value="4">MANAGER</option>
+		<option value="5">ADMIN</option>
+		<option value="6">REGIONAL OFFICER</option>
+	</select>
+	<!-- <input type="submit" value="Register" class="btn-primary form-control"> -->
+	<div class="btn-block btn-group">
+	<input type="submit" value="Register" class="form-control btn-outline-primary">
+	<input type="reset" value="clear" class="form-control btn-outline-primary">
+	</div>
 </form>
 ${REGISTER_ERROR}
 <div>

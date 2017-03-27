@@ -22,6 +22,7 @@
     <li  class="nav-item"><a class="nav-link" href="../RegisteredUser"">HOME</a></li>
     <li><a class="nav-link" href="../complaint/getEmployee">VIEW EMPLOYEE</a></li>
     <li><a class="nav-link" href="../complaint/viewComplaintStatus">VIEW COMPLAINTS</a></li>
+    <li><a class="nav-link" href="../registeredUserComplaint.jsp">REGISTER COMPLAINT</a></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
       <li><a href="../logout"> Logout</a></li>
@@ -31,22 +32,53 @@
 	<thead>
 		<td>COMPLAINT ID</td>
 		<td>COMPLAINT NAME</td>
+		<td>REGISTERED TIME</td>
+		<td>STATUS TIME</td>
 		<td>EMPLOYEE ID</td>
+		<td>STATUS</td>
 	</thead>
 	<jstl:forEach var="i" items="${EMPLOYEE_LIST}" varStatus="invalid">
 	<tr>
 				<td>${i.id}</td>
 				<td>${i.name}</td>
-				<td>${i.user.id}</td>
-				<td>
+				<td>${i.registeredTime}</td>
+				<td>${i.statusTime}</td>
+				<td>${i.user.id}</td> 
+				<td><jstl:set var="status" value="${i.status.id}" />
+				<jstl:set var="applied" value="${1}" />
+				<jstl:set var="cancelled" value="${2}" />
+				<jstl:set var="assigned" value="${3}" />
+				<jstl:set var="finished" value="${4}" />
+				<jstl:set var="declined" value="${5}" />
+				<jstl:choose>
+					<jstl:when test="${status==applied}">
+				     <p class="text-primary bg-primary">COMPLAINT HAS BEEN REGISTERED</p>
+					</jstl:when>
+					<jstl:when test="${status==cancelled}">
+				     <p class="text-warning bg-warning">COMPLAINT HAS BEEN CANCELLED</p>
+				 	</jstl:when>
+					<jstl:when test="${status==assigned}">
+				     <p class="text-info bg-info">COMPLAINT HAS BEEN ASSIGNED</p>
+				 	</jstl:when>
+					<jstl:when test="${status==finished}">
+				     <p class="text-success bg-success">WORK IS FINISHED</p>
+				 	</jstl:when>
+					<jstl:when test="${status==declined}">
+				     <p class="text-danger bg-danger">COMPLAINT HAS BEEN DECLINED DUE TO WRONG INFORMATION</p>
+				 	</jstl:when>
+					<jstl:otherwise>
+				     <p class="text-danger">ERROR</p>
+				 	</jstl:otherwise>
+				</jstl:choose><td>
+				<!-- <td>
 					<select>
-					<!-- <option value="" disabled selected>Choose your Rating</option> -->
+					<option value="" disabled selected>Choose your Rating</option> 
 					<option value="1" selected>good</option>
 					<option value="2">average</option>
 					<option value="3">poor</option>
 					</select>
-				</td>
-				<td> <a href="../rating.jsp" class="btn btn-link" role="button">SUBMIT</a></td>
+				</td>-->
+				<td> <a href="../rating.jsp?employeeId=${i.user.id}" class="btn btn-link" role="button">rating</a></td>
 	</tr>
 	</jstl:forEach>
 </table>

@@ -22,6 +22,7 @@
 		<li><a class="nav-link" href="../view">VIEW EMPLOYEE</a></li>
 		<li><a class="nav-link" href="../complaint/viewComplaints">VIEW
 				COMPLAINTS</a></li>
+		<li><a class="nav-link" href="../employee/adminReport">VIEW REPORT</a></li>
 		<li><a class="nav-link" href="../registerEmployee.jsp">REGISTER</a></li>
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
@@ -38,7 +39,11 @@
 			<td>STREET_NAME</td>
 			<td>PINCODE</td>
 			<td>DETAILS</td>
+			<td>REGISTERED TIME</td>
 			<td>STATUS</td>
+			<td>STATUS TIME</td>
+			<!-- <td>UPDATE</td> -->
+			<!-- <td></td> -->
 		</thead>
 		<jstl:forEach var="i" items="${COMPLAINT_LIST}" varStatus="invalid">
 			<tr>
@@ -59,6 +64,7 @@
 				<td>${i.streetName}</td>
 				<td>${i.pincode}</td>
 				<td>${i.details}</td>
+				<td>${i.registeredTime}</td>
 				<jstl:set var="status" value="${i.status.id}" />
 				<jstl:set var="applied" value="${1}" />
 				<jstl:set var="cancelled" value="${2}" />
@@ -88,9 +94,11 @@
 						<jstl:otherwise>
 							<p class="text-danger">ERROR</p>
 						</jstl:otherwise>
-					</jstl:choose>
+					</jstl:choose></td>
+					<td>${i.statusTime}</td>
 				<td>
-					<%-- <td>${i.status.id}</td> --%>
+					<a href="../changeRole.jsp?complaintId=${i.id}" class="btn btn-secondary" role="button">UPDATE</a>
+				</td>
 			</tr>
 		</jstl:forEach>
 	</table>

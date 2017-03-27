@@ -85,7 +85,8 @@ public class RegisterController {
 		userDAO.adminSave(user);
 		employee.getUser().setId(userDAO.getUserId(emailId));
 		employeeDetailDAO.save(employee);
-		return "/admin.jsp";
+		return "redirect:../view";
+		/*return "/admin.jsp";*/
 	}
 
 }
