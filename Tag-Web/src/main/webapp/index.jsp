@@ -1,24 +1,89 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<title>INDEX PAGE</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<body class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
-    <div style="width:300px; margin:0 auto;margin-top: 15%">
-        <form class="align-items-center" action="/login" method="get">
-               <label for="EMIAL_ID">EMAIL ID:</label>
-               <input type="email" id="EMIAL_ID" name="emailId" class="form-control" required="" autofocus="" placeholder="abc@gamil.com">
-               <label for="pwd">PASSWORD:</label>
-               <input type="password" id="pwd" name="password" style="margin-bottom: 10px" class="form-control" required="">
-            <input type="submit" value="Login" class="btn btn-primary btn-md btn-block">
-            <a class="btn btn-block btn-sm" href="../register.jsp">Sign Up</a>
-            <a class="btn btn-block btn-sm" href="../complaintRegister.jsp"> Anonymous Complaint</a>
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Start your project here-->
+    <!--Form with header-->
+<div class="card" style="width:300px; margin:0 auto;margin-top: 10%">
+    <div class="card-block">
+
+        <!--Header-->
+        <div class="form-header blue darken-2">
+            <h3><i class="fa fa-lock"></i> Login:</h3>
+        </div>
+
+        <!--Body-->
+        <form class="form-inline" action="/login" method="get">
+            <div class="md-form form-group">
+                <i class="fa fa-envelope prefix"></i>
+                <input type="email" id="emailId" name="emailId" class="form-control validate">
+                <label for="emailId" data-error="invalid">Your email</label>
+            </div>
+
+            <div class="md-form form-group">
+                <i class="fa fa-lock prefix"></i>
+                <input type="password" id="password" name="password" class="form-control validate">
+                <label for="password" data-error="invalid">Your password</label>
+            </div>
+
+           <div class="md-form form-group"> 
+                <button class="btn btn-primary" type="submit">Login</button>
+                <button class="btn btn-primary" type="reset">Clear</button>
+            </div>
+        </form>
+    </div>
     ${LOGIN_ERROR}
-</div> 
+    <!--Footer-->
+    <div class="modal-footer">
+        <div class="options btn-block">
+            <a class="btn-block" href="../register.jsp" style="
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;"> Sign Up</a>
+            <a class="btn-block" href="../complaintRegister.jsp" style="
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;">Anonymous Complaint</a>
+        </div>
+    </div>
+
+</div>
+<!--/Form with header-->
+    <!-- /Start your project here-->
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/tether.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
 </body>
+
 </html>
