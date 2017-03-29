@@ -15,8 +15,8 @@ pageEncoding="ISO-8859-1"%>
                <label for="pwd">PASSWORD:</label>
                <input type="password" id="pwd" name="password" style="margin-bottom: 10px" class="form-control" required="">
             <input type="submit" value="Login" class="btn btn-primary btn-md btn-block">
-            <a class="btn btn-block btn-sm" href="../register.jsp">not Registered ?</a>
-            <a class="btn btn-block btn-sm" href="../complaintRegister.jsp">just Register complaint?</a>
+            <a class="btn btn-block btn-sm" href="../register.jsp">Sign Up</a>
+            <a class="btn btn-block btn-sm" href="../complaintRegister.jsp"> Anonymous Complaint</a>
     </form>
     ${LOGIN_ERROR}
 </div> 
