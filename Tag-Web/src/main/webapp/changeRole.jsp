@@ -28,7 +28,7 @@
 </script>
 <body>
 <jsp:include page="/layout/adminHeader.jsp" />
-<table class="table table-hover">
+<table class="table table-striped table-bordered table-hover">
 <thead>
 <td>COMPLAINT ID</td>
 <td>STATUS</td>

@@ -70,7 +70,7 @@ public class ComplaintController {
 		complaint.setPincode(pincode);
 		complaint.setDetails(details);
 		complaintDAO.uSave(complaint);
-		return "/";
+		return "redirect:../";
 	}
 	
 	@GetMapping("/employeeComplaint")

@@ -15,7 +15,6 @@ import com.tag.dao.EmployeeDetailDAO;
 import com.tag.dao.RegisteredUserDAO;
 import com.tag.dao.UserDAO;
 import com.tag.model.Employee;
-import com.tag.model.RegisteredUser;
 import com.tag.model.User;
 
 @Controller
@@ -48,9 +47,9 @@ public class LoginController {
 		employee.setUser(user);
 		int role = userDAO.getRole(emailId);
 		if(role==2){
-			List<RegisteredUser> userList=registeredUserDAO.findOne(user.getId());
-			modelMap.addAttribute("USER_LIST",userList);
-			returnStatement="/user.jsp";	
+			/*List<RegisteredUser> userList=registeredUserDAO.findOne(user.getId());
+			modelMap.addAttribute("USER_LIST",userList);*/
+			returnStatement="redirect:/RegisteredUser";	
 		}
 		else if(role==1){
 			int designation = employeeDetailDAO.getDesignation(employee.getUser().getId());

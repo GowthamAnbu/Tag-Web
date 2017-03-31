@@ -15,7 +15,7 @@
     <link href="../css/mdb.min.css" rel="stylesheet">
 <body>
 <jsp:include page="/layout/adminHeader.jsp" />
-	<table class="table table-striped table-bordered table-hover">
+	<table class="table table-striped table-bordered table-hover table-responsive">
 		<thead>
 			<td>ID</td>
 			<td>NAME</td>
@@ -28,7 +28,7 @@
 			<td>REGISTERED TIME</td>
 			<td>STATUS</td>
 			<td>STATUS TIME</td>
-			<!-- <td>UPDATE</td> -->
+			<td>ACTION</td>
 			<!-- <td></td> -->
 		</thead>
 		<jstl:forEach var="i" items="${COMPLAINT_LIST}" varStatus="invalid">
@@ -97,7 +97,8 @@
 						<jstl:otherwise>
 							<p class="text-danger">ERROR</p>
 						</jstl:otherwise>
-					</jstl:choose></td>
+					</jstl:choose>
+				</td>
 					<td>${i.statusTime}</td>
 				<td>
 					<a href="../changeRole.jsp?complaintId=${i.id}" class="btn btn-secondary" role="button">UPDATE</a>
