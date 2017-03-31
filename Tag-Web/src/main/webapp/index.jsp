@@ -38,13 +38,13 @@
         <form class="form-inline" action="/login" method="get">
             <div class="md-form form-group">
                 <i class="fa fa-envelope prefix"></i>
-                <input type="email" id="emailId" name="emailId" class="form-control validate">
+                <input type="email" id="emailId" name="emailId" class="form-control validate" required>
                 <label for="emailId" data-error="invalid">Your email</label>
             </div>
 
             <div class="md-form form-group">
                 <i class="fa fa-lock prefix"></i>
-                <input type="password" id="password" name="password" class="form-control validate">
+                <input type="password" id="password" name="password" class="form-control validate" required>
                 <label for="password" data-error="invalid">Your password</label>
             </div>
 
