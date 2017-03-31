@@ -6,29 +6,15 @@
 <%@ taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>REPORT</title>
-<!-- NAV BAR START-->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- NAV BAR END -->
 </head>
+	<!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="../css/mdb.min.css" rel="stylesheet">
 <body>
-<nav class="navbar navbar-default">
-	<ul class="nav navbar-nav">
-		<li class="nav-item"><a class="nav-link" href="../admin">HOME</a></li>
-		<li><a class="nav-link" href="../view">VIEW EMPLOYEE</a></li>
-		<li><a class="nav-link" href="../complaint/viewComplaints">VIEW
-				COMPLAINTS</a></li>
-		<li><a class="nav-link" href="../employee/adminReport">VIEW REPORT</a></li>
-		<li><a class="nav-link" href="../registerEmployee.jsp">REGISTER</a></li>
-	</ul>
-	<ul class="nav navbar-nav navbar-right">
-		<li><a href="../logout"> Logout</a></li>
-	</ul>
-	</nav>
+<jsp:include page="/layout/adminHeader.jsp" />
 	<table class="table table-hover">
 		<thead>
 			<td>DEPARTMENT NAME</td>
@@ -45,7 +31,7 @@
 				<td><jstl:set var="ratingId" value="${i.rating}" /> 
 				<jstl:set var="noRating" value="${0}" /> <jstl:choose>
 						<jstl:when test="${ratingId==noRating}">
-							<p class="text-danger">no ratings yet</p>
+							<p class="text-muted">nill ratings</p>
 						</jstl:when>
 						<jstl:otherwise>
 							${i.rating}
@@ -54,7 +40,7 @@
 				<td><jstl:set var="complaints" value="${i.complaintsHandled}" /> 
 				<jstl:set var="noComplaints" value="${0}" /> <jstl:choose>
 						<jstl:when test="${complaints==noComplaints}">
-							<p class="text-danger">no complaints yet</p>
+							<p class="text-primary">nill complaints</p>
 						</jstl:when>
 						<jstl:otherwise>
 							${i.complaintsHandled}
@@ -63,5 +49,14 @@
 			</tr>
 		</jstl:forEach>
 		</table>
+<!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../js/tether.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../js/mdb.min.js"></script>
 </body>
 </html>

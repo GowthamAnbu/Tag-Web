@@ -5,17 +5,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ASSIGNMENT BOX</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <%@ taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="../css/mdb.min.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="/layout/adminHeader.jsp" />
+<table class="table table-hover">
+<thead>
+<td>COMPLAINT ID</td>
+<td>EMPLOYEE ID</td>
+<td>ACTION</td>
+</thead>
+<tr>
 <form action="/complaint/employeeComplaint">
-	EMPLOYEE ID:<input type="number" name="employeeId">
-	<input type="submit" name="assign">
-	<input type="hidden" name="id" value=<%=request.getParameter("id")%>>
+	<td><input type="text" name="id" value=<%=request.getParameter("id")%> readonly="readonly"></td>
+	<td><input type="number" name="employeeId"></td>
+	<td><button class="btn btn-primary" type="submit">Assign</button></td>
 </form>
+<tr>
+<!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../js/tether.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../js/mdb.min.js"></script>
 </body>
 </html>

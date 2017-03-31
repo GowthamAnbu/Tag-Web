@@ -14,7 +14,6 @@ import com.tag.dao.ComplaintDAO;
 import com.tag.dao.EmployeeDetailDAO;
 import com.tag.dao.RegisteredUserDAO;
 import com.tag.dao.UserDAO;
-import com.tag.model.Complaint;
 import com.tag.model.Employee;
 import com.tag.model.RegisteredUser;
 import com.tag.model.User;
@@ -34,10 +33,10 @@ public class LoginController {
 		user.setPassword(password);
 		try {
 			if(!userDAO.isValidEmailId(emailId)){
-				throw new Exception("INVALID EMAIL ID");
+				throw new Exception("Invalid Email Id");
 			}
 			else if(!userDAO.isValidPassword(emailId, password)){
-				throw new Exception("INVALID PASSWORD");
+				throw new Exception("Invalid Password");
 			}
 		} catch (Exception e) {
 			modelMap.addAttribute("LOGIN_ERROR", e.getMessage());
@@ -56,11 +55,12 @@ public class LoginController {
 		else if(role==1){
 			int designation = employeeDetailDAO.getDesignation(employee.getUser().getId());
 			if(designation==5){
-				List<User> userList=userDAO.findAll();
+				/*List<User> userList=userDAO.findAll();
 				modelMap.addAttribute("USER_LIST",userList);
 				List<Complaint> complaintList=complaintDAO.findassigned();
-				modelMap.addAttribute("COMPLAINT_LIST",complaintList);
-				returnStatement= "/admin.jsp";
+				modelMap.addAttribute("COMPLAINT_LIST",complaintList);*/
+				/*returnStatement= "/admin.jsp";*/
+				returnStatement= "redirect:/admin";
 			}
 			else{
 				List<Employee> employeeList=employeeDetailDAO.findAll(user.getId());

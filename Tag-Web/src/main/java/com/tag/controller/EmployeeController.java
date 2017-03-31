@@ -53,4 +53,11 @@ public class EmployeeController {
 		modelMap.addAttribute("REPORT_LIST",adminReport);
 		return"../adminReport.jsp";
 	}
+	
+	@GetMapping("/getWorker")
+	public String getWorker(ModelMap modelMap,@RequestParam("id")String id){
+		List<Integer> workerList=employeeDetailDAO.getWorker();
+		modelMap.addAttribute("WORKER_LIST",workerList);
+		return "../assign.jsp?id="+id;
+	}
 }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>Index Page</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -15,12 +15,18 @@
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
 </head>
-
 <body>
-
     <!-- Start your project here-->
+    <font class="text-primary" size="7"><center>TRANSPARENT ADMINISTRATIVE GOVERNANCE</center></font>
+    <!--images-->
+    <img src="../img/TamilNadu_Logo.png" alt="TamilNadu_Logo" width=device-width height="100" style=" position: absolute;
+    top: 0px;
+    left: 0px;">
+    <img src="../img/Emblem_of_India.png" alt="TamilNadu_Logo" width=device-width height="100" style=" position: absolute;
+    top: 0px;
+    right: 0px;">
     <!--Form with header-->
-<div class="card" style="width:300px; margin:0 auto;margin-top: 10%">
+<div class="card" style="width:300px; margin:0 auto;margin-top:3%">
     <div class="card-block">
 
         <!--Header-->
@@ -48,7 +54,7 @@
             </div>
         </form>
     </div>
-    ${LOGIN_ERROR}
+    <p class="text-danger text-center">${LOGIN_ERROR}</p>
     <!--Footer-->
     <div class="modal-footer">
         <div class="options btn-block">
