@@ -15,16 +15,17 @@
     <link href="../css/mdb.min.css" rel="stylesheet">
 <body>
 <jsp:include page="/layout/adminHeader.jsp" />
-<table class="table table-hover">
+<table class="table table-striped table-bordered table-hover">
 	<thead>
 		<td>ID</td>
 		<td>NAME</td>
-		<td>USER_ID</td>
+		<td>USER ID</td>
 		<td>DEPARTMENT</td>
 		<td>DOOR NUMBER</td>
 		<td>STREET NAME</td>
 		<td>PINCODE</td>
 		<td>DETAILS</td>
+		<td>ACTION</td>
 	</thead>
 	<jstl:forEach var="i" items="${COMPLAINT_LIST}" varStatus="invalid">
 	<tr>

@@ -15,7 +15,7 @@
     <link href="../css/mdb.min.css" rel="stylesheet">
 <body>
 <jsp:include page="/layout/adminHeader.jsp" />
-<table class="table table-hover">
+<table class="table table-striped table-bordered table-hover">
 	<thead>
 		<td>ID</td>
 		<td>NAME</td>
