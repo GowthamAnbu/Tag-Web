@@ -15,21 +15,24 @@
     <link href="../css/mdb.min.css" rel="stylesheet">
 <body>
 <jsp:include page="/layout/adminHeader.jsp" />
+<div class="float-right">
+<a href="../admin/emailSend" class="btn btn-outline-secondary" role="button">SEND</a>
+</div>
 	<table class="table table-striped table-bordered table-hover table-responsive">
 		<thead>
 			<td>ID</td>
-			<td>NAME</td>
+			<td class="mdl-data-table__cell--non-numeric">NAME</td>
 			<td>USER ID</td>
-			<td>DEPARTMENT</td>
+			<td class="mdl-data-table__cell--non-numeric">DEPARTMENT</td>
 			<td>DOOR NUMBER</td>
-			<td>STREET NAME</td>
+			<td class="mdl-data-table__cell--non-numeric">STREET NAME</td>
 			<td>PINCODE</td>
-			<td>DETAILS</td>
+			<td class="mdl-data-table__cell--non-numeric">DETAILS</td>
 			<td>REGISTERED TIME</td>
-			<td>STATUS</td>
+			<td class="mdl-data-table__cell--non-numeric">STATUS</td>
 			<td>STATUS TIME</td>
 			<td>ACTION</td>
-			<!-- <td></td> -->
+			<!-- <td>REPORT</td> -->
 		</thead>
 		<jstl:forEach var="i" items="${COMPLAINT_LIST}" varStatus="invalid">
 			<tr>
@@ -103,6 +106,18 @@
 				<td>
 					<a href="../changeRole.jsp?complaintId=${i.id}" class="btn btn-secondary" role="button">UPDATE</a>
 				</td>
+				<!-- <td><jstl:choose>
+						<jstl:when test="${status==applied}">
+							<a href="#" class="btn btn-outline-secondary" role="button">SEND</a>
+						</jstl:when>
+						<jstl:when test="${status==assigned}">
+						<a href="#" class="btn btn-outline-secondary" role="button">SEND</a>
+						</jstl:when>
+						<jstl:otherwise>
+						<a href="#" class="btn btn-outline-secondary" role="button">SEND</a>
+						</jstl:otherwise>
+						</jstl:choose>
+				</td> -->
 			</tr>
 		</jstl:forEach>
 	</table>

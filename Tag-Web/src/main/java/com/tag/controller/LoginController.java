@@ -64,7 +64,7 @@ public class LoginController {
 			else{
 				List<Employee> employeeList=employeeDetailDAO.findAll(user.getId());
 				modelMap.addAttribute("EMPLOYEE_LIST",employeeList);
-				returnStatement="/employee.jsp";
+				returnStatement="redirect:/employee";
 			}
 		}
 		return returnStatement;
