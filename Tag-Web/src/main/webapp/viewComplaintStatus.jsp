@@ -28,6 +28,7 @@
 			<td>REGISTERED TIME</td>
 			<td>STATUS</td>
 			<td>STATUS TIME</td>
+			<td>ACTION</td>
 		</thead>
 		<jstl:forEach var="i" items="${COMPLAINT_LIST}" varStatus="invalid">
 			<tr>
@@ -71,8 +72,12 @@
 						</jstl:otherwise>
 					</jstl:choose>
 					<td>${i.statusTime}</td>
-				<td><%-- <td>${i.status.id}</td> --%>
-				
+				<%-- <td>${i.status.id}</td> --%>
+				<td><jstl:choose>
+						<jstl:when test="${status==applied}"> 
+						<a href="../admin/cancel?complaintId=${i.id}" class="btn btn-danger" role="button">cancel</a></td>
+						</jstl:when>
+					</jstl:choose>
 			</tr>
 		</jstl:forEach>
 	</table>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.tag.dao.ComplaintDAO;
 import com.tag.dao.EmployeeDetailDAO;
 import com.tag.model.Complaint;
+import com.tag.model.User;
 import com.tag.util.MailUtil;
 
 @Controller
@@ -37,4 +38,13 @@ public class AdminController {
 		employeeDetailDAO.trackingWork();
 		return "redirect:/employee/adminReport";
 	}
+	
+	@GetMapping("/cancel")
+	public String cancel(@RequestParam("complaintId")String complaintId){
+		complaintDAO.cancel(Integer.parseInt(complaintId));
+		User user = complaintDAO.getUser(Integer.parseInt(complaintId));
+		MailUtil.sendSimpleMail("CANCELLATION", user);
+		return "redirect:/complaint/viewComplaintStatus";
+	}
+	
 }
